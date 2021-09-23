@@ -3,8 +3,10 @@ func! myspacevim#before() abort
   "逗号后空格
   inoremap , ,<Space>
   "等号左右空格
-  inoremap = <Space>=<Space>
-      
+  " inoremap = <Space>=<Space>
+  inoremap " "" 
+  inoremap ' ''
+  
   set enc=utf-8 
   nmap <S-f> :CtrlSF<Space>  
 
@@ -14,4 +16,10 @@ func! myspacevim#before() abort
   let g:blamer_show_in_insert_modes = 0
   let g:blamer_prefix = ' '
   let g:blamer_date_format = '%y-%m-%d'
+
+  au BufNewFile,BufRead *.axml set filetype=html
+  augroup SyntaxSettings
+      autocmd!
+      autocmd BufNewFile,BufRead *.tsx set filetype=typescript
+  augroup END
 endf
